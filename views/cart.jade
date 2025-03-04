@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Giỏ hàng của bạn
+  p Số lượng sản phẩm trong giỏ: #{cartCount}
+
+  if cartItems.length
+    ul
+      each item in cartItems
+        li
+          | #{item.name} - #{item.price}₫
+  else
+    p Giỏ hàng trống.
+
+  a(href='/products') Tiếp tục mua sắm

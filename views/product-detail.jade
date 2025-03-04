@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Chi tiết sản phẩm
+  h2 #{product.name} - #{product.price}₫
+  p #{product.description}
+
+  form(action='/cart/add/' + product._id, method='post')
+    button(type='submit') Thêm vào giỏ hàng
+
+  a(href='/products') Quay về danh sách sản phẩm

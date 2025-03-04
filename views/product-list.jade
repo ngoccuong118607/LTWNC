@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Danh sách sản phẩm
+  p Trong giỏ hàng có #{cartCount} sản phẩm.
+  ul
+    each product in products
+      li
+        h3 #{product.name} - #{product.price}₫
+        p #{product.description}
+        a(href='/products/' + product._id) Xem chi tiết
+        form(action='/cart/add/' + product._id, method='post')
+          button(type='submit') Thêm vào giỏ hàng
+  br
+  a(href='/cart') Xem giỏ hàng
+  br
+  a(href='/') Quay về trang chủ
